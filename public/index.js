@@ -3,6 +3,9 @@ var temp = document.getElementById("results__temp");
 var clothing = document.getElementById("results__suggestion");
 var loc = document.getElementById("results__location");
 var accessory = document.getElementById("results__accessory");
+var icon1 = document.getElementById("icon1");
+
+spinner.className = "loader";
 
 function success(pos) {
   var crd = pos.coords;
@@ -27,12 +30,16 @@ function getWeather(url) {
 }
 
 function updateDom(res) {
+  spinner.className = "hidden";
   var temperature = Math.round(((res.currently.temperature - 32) * 5) / 9);
   loc.innerText = res.timezone;
   weather.innerText = res.currently.summary;
   temp.innerText = temperature + "C";
   getClothing(temperature);
   getAccessory(res.currently.icon);
+  var skyconImg = res.currently.icon.replace("-", "_").toUpperCase();
+  var skycons = new Skycons({ color: "white" });
+  skycons.add("icon1", Skycons[skyconImg]); // this works for now but will need to fully test all options!
 }
 
 function getClothing(temperature) {
