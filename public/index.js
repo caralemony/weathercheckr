@@ -23,7 +23,8 @@ function getWeather(url) {
 }
 
 function updateDom(res) {
-  location.innerText = res.timezone;
-  weather.innerText = res.currently.summary;
-  temp.innerText = res.currently.temperature;
+  alert("ofj");
+  //   location.innerText = res.timezone;
+  //   weather.innerText = res.currently.summary;
+  //   temp.innerText = res.currently.temperature;
 }
