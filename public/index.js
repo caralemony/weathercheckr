@@ -1,9 +1,12 @@
-var results = document.getElementById("results");
+var location = document.getElementById("results__location");
+var weather = document.getElementById("results__currWeather");
+var temp = document.getElementById("results__temp");
+var clothing = document.getElementById("results__suggestion");
 
 function success(pos) {
   var crd = pos.coords;
   var url = "/apiCall?" + "lat=" + crd.latitude + "&long=" + crd.longitude;
-  XHRrequest(url, updateDom);
+  getWeather(url);
 }
 
 function error(err) {
@@ -12,23 +15,15 @@ function error(err) {
 
 navigator.geolocation.getCurrentPosition(success, error);
 
-function XHRrequest(url, cb) {
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        cb(xhr.responseText);
-      } else {
-        var errorMessage = "Something went wrong with our lookup";
-        cb(errorMessage);
-      }
-    }
-  };
-  xhr.open("GET", url, true);
-  xhr.send();
+function getWeather(url) {
+  fetch(url)
+    .then(response => response.json())
+    .then(data => updateDom(data))
+    .catch(error => console.log("error is", error));
 }
 
 function updateDom(res) {
-  let content = JSON.parse(res);
-  results.innerText = content.currently;
+  location.innerText = res.timezone;
+  weather.innerText = res.currently.summary;
+  temp.innerText = res.currently.temperature;
 }
