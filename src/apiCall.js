@@ -6,11 +6,10 @@ const apiCall = (request, response) => {
   let lat = request.url.split("=")[1].split("&")[0];
   let long = request.url.split("=")[2];
   let apiUrl = `https://api.darksky.net/forecast/${DARK_SKY_KEY}/${lat},${long}`;
-  console.log(apiUrl);
 
   APIrequest(apiUrl, (error, res, body) => {
     if (error) {
-      console.log("error:", error);
+      response.end("Sorry, there is a problem with our weather check!");
     } else {
       response.end(body);
     }

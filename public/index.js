@@ -17,11 +17,10 @@ function XHRrequest(url, cb) {
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
-        console.log(xhr.responseText);
         cb(xhr.responseText);
       } else {
         var errorMessage = "Something went wrong with our lookup";
-        cb("Error " + url + " " + errorMessage);
+        cb(errorMessage);
       }
     }
   };
@@ -29,6 +28,7 @@ function XHRrequest(url, cb) {
   xhr.send();
 }
 
-function updateDom(content) {
-  results.textContent = content;
+function updateDom(res) {
+  let content = res.currently;
+  results.innerText = content;
 }
