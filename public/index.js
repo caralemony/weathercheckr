@@ -29,6 +29,6 @@ function XHRrequest(url, cb) {
 }
 
 function updateDom(res) {
-  let content = res.currently;
-  results.innerText = content;
+  let content = JSON.parse(res);
+  results.innerText = content.currently;
 }
