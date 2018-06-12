@@ -7,14 +7,27 @@
     <title>Weather Checkr</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
-
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Weather Checkr</h1>
-    <h3>Find out what to wear today where you are!</h3>
-    <div id="results"></div>
-    <script src="./index.js"></script>
+    <header>
+        <h1>Weather Checkr</h1>
+        <h3>Find out what to wear today where you are!</h3>
+    </header>
+    <section id="results">
+        <div class="hidden" id="spinner"></div>
+        <canvas id="icon1" width="128" height="128"></canvas>
+        <p id="results__location"></p>
+        <p id="results__currWeather">
+        </p>
+        <p id="results__temp"></p>
+        <p id="results__suggestion"></p>
+        <p id="results__accessory"></p>
+
+    </section>
+    <script src=" ./index.js "></script>
+    <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
 </body>
 
 </html>
