@@ -11,7 +11,7 @@ const apiCall = (request, response) => {
     if (error) {
       response.end("Sorry, there is a problem with our weather check!");
     } else {
-      response.end(body);
+      response.end(JSON.stringify(body));
     }
   });
 };
