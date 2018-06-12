@@ -37,15 +37,15 @@ function updateDom(res) {
   temp.innerText = temperature + "C";
   getClothing(temperature);
   getAccessory(res.currently.icon);
-  var skyconImg = res.currently.icon.replace("-", "_").toUpperCase();
+  var skyconImg = res.currently.icon.replace(/-/g, "_").toUpperCase();
   var skycons = new Skycons({ color: "white" });
-  skycons.add("icon1", Skycons[skyconImg]); // this works for now but will need to fully test all options!
+  skycons.add("icon1", Skycons[skyconImg]);
 }
 
 function getClothing(temperature) {
   if (0 < temperature < 10) {
     clothing.innerText = "It's chilly, wrap up warm in a jumper and coat";
-  } else if (temperature < 0) {
+  } else if (temperature <= 0) {
     clothing.innerText = "It's freezing! Try a hat, scarf, gloves and coat!";
   } else if (11 < temperature < 20) {
     clothing.innerText =
