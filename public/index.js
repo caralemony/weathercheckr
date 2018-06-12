@@ -3,6 +3,8 @@ var weather = document.getElementById("results__currWeather");
 var temp = document.getElementById("results__temp");
 var clothing = document.getElementById("results__suggestion");
 
+var results = document.getElementById("results");
+
 function success(pos) {
   var crd = pos.coords;
   var url = "/apiCall?" + "lat=" + crd.latitude + "&long=" + crd.longitude;
@@ -23,8 +25,7 @@ function getWeather(url) {
 }
 
 function updateDom(res) {
-  alert("ofj");
-  //   location.innerText = res.timezone;
-  //   weather.innerText = res.currently.summary;
-  //   temp.innerText = res.currently.temperature;
+  results.innerText = res.timezone;
+  weather.innerText = res.currently.summary;
+  temp.innerText = res.currently.temperature;
 }
