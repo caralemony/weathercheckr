@@ -1,0 +1,23 @@
+{
+  "name": "weathercheckr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caralemony/weathercheckr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caralemony/weathercheckr/issues"
+  },
+  "homepage": "https://github.com/caralemony/weathercheckr#readme",
+  "dependencies": {
+    "env": "0.0.2",
+    "env2": "^2.2.2"
+  }
+}
