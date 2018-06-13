@@ -43,14 +43,15 @@ function updateDom(res) {
 }
 
 function getClothing(temperature) {
-  if (0 < temperature < 10) {
+  console.log(temperature);
+  if (temperature > 0 && temperature <= 10) {
     clothing.innerText = "It's chilly, wrap up warm in a jumper and coat";
   } else if (temperature <= 0) {
     clothing.innerText = "It's freezing! Try a hat, scarf, gloves and coat!";
-  } else if (11 < temperature < 20) {
+  } else if (temperature > 10 && temperature <= 20) {
     clothing.innerText =
       "Not too bad, a light jumper and trousers or leggings should be fine";
-  } else if (21 < temperature < 25) {
+  } else if (temperature > 21 && temperature < 25) {
     clothing.innerText = "It's warming up! Dress or shorts would be good";
   } else if (temperature > 25) {
     clothing.innerText = "It's boiling! Get the bikini or swimming trunks out!";
