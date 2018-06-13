@@ -51,9 +51,9 @@ function getClothing(temperature) {
   } else if (temperature > 10 && temperature <= 20) {
     clothing.innerText =
       "Not too bad, a light jumper and trousers or leggings should be fine";
-  } else if (temperature > 21 && temperature < 25) {
+  } else if (temperature >= 21 && temperature < 25) {
     clothing.innerText = "It's warming up! Dress or shorts would be good";
-  } else if (temperature > 25) {
+  } else if (temperature >= 25) {
     clothing.innerText = "It's boiling! Get the bikini or swimming trunks out!";
   }
 }
